@@ -79,9 +79,42 @@
 
         }
 
-        const playerSelection = "rock";
-        const computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
+        function game() {
+            // Create variables to track player wins, losses, and ties
+            let wins = 0;
+            let losses = 0;
+            let ties = 0;
+            // Play 5 rounds
+            for (let i = 1; i < 6; i++) {
+                result = playRound(prompt("Rock, Paper, or Scissors?: "),getComputerChoice());
+                console.log("Round " + i + ": " + result);
+                
+                // Determine if player won, lost, or tied
+                // if first letter of result is "T" then increment ties
+                if (result.slice(0,1) === "T")
+                    ties++;
+                // if fourth letter of result is "W" then increment wins
+                else if (result.slice(4,5) == "W")
+                    wins++;
+                // else increment losses
+                else
+                    losses++;
+            }
+
+            // Determine if wins is greater than, less than, or equal to losses
+            if (wins > losses)
+                console.log("You win!");
+            else if (wins < losses)
+                console.log("You lost!");
+            else // wins === losses
+                console.log("You tied!");
+
+            console.log("You won " + wins + " round(s), lost " + losses + " round(s), and tied " + ties + " round(s).");
+        }
+
+        // const playerSelection = "rock";
+        // const computerSelection = getComputerChoice();
+        // console.log(playRound(playerSelection, computerSelection));
     </script>
     
 </body>
