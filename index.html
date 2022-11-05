@@ -23,6 +23,65 @@
                 return "Scissors";
             
         }
+
+        function playRound(playerSelection, computerSelection) {
+            // Lowercase both inputs
+            playerSelection = playerSelection.toLowerCase();
+            computerSelection = computerSelection.toLowerCase();
+
+            // If player selected rock
+            if (playerSelection === "rock") {
+                // If computer selected rock
+                if (computerSelection === "rock")
+                    return "Tie! You both chose Rock";
+
+                // If computer selected paper
+                if (computerSelection === "paper")
+                    return "You Lose! Paper beats Rock";
+
+                // else computer selected scissors
+                else
+                    return "You Win! Rock beats Scissors";
+                
+            }
+                
+
+            // If player selected paper
+            if (playerSelection === "paper") {
+                // If computer selected rock
+                if (computerSelection === "rock")
+                    return "You Win! Paper beats Rock";
+
+                // If computer selected paper
+                if (computerSelection === "paper")
+                    return "Tie! You both chose Paper";
+
+                // else computer selected scissors
+                else
+                    return "You Lose! Scissors beats Paper";
+                
+            }
+            
+            // Else player selected scissors
+            else {
+                // If computer selected rock
+                if (computerSelection === "rock")
+                    return "You Lose! Rock beats Scissors";
+
+                // If computer selected paper
+                if (computerSelection === "paper")
+                    return "You Win! Scissors beats Paper";
+
+                // else computer selected scissors
+                else
+                    return "Tie! You both chose Scissors";
+            }
+
+        }
+
+        const playerSelection = "rock";
+        const computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
     </script>
     
 </body>
