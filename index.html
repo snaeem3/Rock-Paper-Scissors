@@ -7,6 +7,25 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="score-container">
+        <h2>
+            Player Score:
+        </h2>
+        <div class="score player">
+            <p>0</p>
+        </div>
+        <h2>
+            Computer Score:
+        </h2>
+        <div class="score computer">
+            <p>0</p>
+        </div>
+    </div>
+    <div class="button-container">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+    </div>
     <script>
         function getComputerChoice() {
             // Store a random number between 1-3
@@ -28,7 +47,7 @@
             // Lowercase both inputs
             playerSelection = playerSelection.toLowerCase();
             computerSelection = computerSelection.toLowerCase();
-
+            // alert("playing round");
             // If player selected rock
             if (playerSelection === "rock") {
                 // If computer selected rock
@@ -40,18 +59,19 @@
                     return "You Lose! Paper beats Rock";
 
                 // else computer selected scissors
-                else
+                else {
+                    updateScore('player');
                     return "You Win! Rock beats Scissors";
-                
+                }
             }
-                
 
             // If player selected paper
             if (playerSelection === "paper") {
                 // If computer selected rock
-                if (computerSelection === "rock")
+                if (computerSelection === "rock"){
+                    updateScore('player');
                     return "You Win! Paper beats Rock";
-
+                }
                 // If computer selected paper
                 if (computerSelection === "paper")
                     return "Tie! You both chose Paper";
@@ -69,9 +89,10 @@
                     return "You Lose! Rock beats Scissors";
 
                 // If computer selected paper
-                if (computerSelection === "paper")
+                if (computerSelection === "paper"){
+                    updateScore('player');
                     return "You Win! Scissors beats Paper";
-
+                }
                 // else computer selected scissors
                 else
                     return "Tie! You both chose Scissors";
@@ -85,21 +106,21 @@
             let losses = 0;
             let ties = 0;
             // Play 5 rounds
-            for (let i = 1; i < 6; i++) {
-                result = playRound(prompt("Rock, Paper, or Scissors?: "),getComputerChoice());
-                console.log("Round " + i + ": " + result);
+            // for (let i = 1; i < 6; i++) {
+            //     result = playRound(prompt("Rock, Paper, or Scissors?: "),getComputerChoice());
+            //     console.log("Round " + i + ": " + result);
                 
-                // Determine if player won, lost, or tied
-                // if first letter of result is "T" then increment ties
-                if (result.slice(0,1) === "T")
-                    ties++;
-                // if fourth letter of result is "W" then increment wins
-                else if (result.slice(4,5) == "W")
-                    wins++;
-                // else increment losses
-                else
-                    losses++;
-            }
+            //     // Determine if player won, lost, or tied
+            //     // if first letter of result is "T" then increment ties
+            //     if (result.slice(0,1) === "T")
+            //         ties++;
+            //     // if fourth letter of result is "W" then increment wins
+            //     else if (result.slice(4,5) == "W")
+            //         wins++;
+            //     // else increment losses
+            //     else
+            //         losses++;
+            // }
 
             // Determine if wins is greater than, less than, or equal to losses
             if (wins > losses)
@@ -112,9 +133,31 @@
             console.log("You won " + wins + " round(s), lost " + losses + " round(s), and tied " + ties + " round(s).");
         }
 
-        // const playerSelection = "rock";
-        // const computerSelection = getComputerChoice();
-        // console.log(playRound(playerSelection, computerSelection));
+        const playerScoreCard = document.querySelector('div.player');
+        let playerScore = 0;
+
+        function updateScore(winner) {
+            if (winner = 'player')
+             {
+                playerScore++;
+                playerScoreCard.textContent = playerScore;
+             }
+        }
+
+        
+        // playerScore.textContent = '200';
+        
+
+        const buttons = document.querySelectorAll('button');
+
+        // we use the .forEach method to iterate through each button
+        buttons.forEach((button) => {
+            // and for each one we add a 'click' listener
+            button.addEventListener('click', () => {
+                // alert(button.id);
+                playRound(button.id,getComputerChoice());
+            });
+        });
     </script>
     
 </body>
