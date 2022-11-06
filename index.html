@@ -21,6 +21,9 @@
             <p>0</p>
         </div>
     </div>
+    
+    <div class="winner-announcement"></div>
+    
     <div class="button-container">
         <button id="rock">Rock</button>
         <button id="paper">Paper</button>
@@ -134,14 +137,38 @@
         }
 
         const playerScoreCard = document.querySelector('div.player');
+        const computerScoreCard = document.querySelector('div.computer');
         let playerScore = 0;
+        let computerScore = 0;
 
         function updateScore(winner) {
-            if (winner = 'player')
-             {
+            if (winner = 'player') {
                 playerScore++;
                 playerScoreCard.textContent = playerScore;
-             }
+            }
+            else if (winner = 'computer') {
+                computerScore++;
+                computerScoreCard.textContent = computerScore;
+            }
+
+            if (playerScore > 4) {
+                announceWinner('player')
+            }
+            else if (computerScore > 4) {
+                announceWinner('computer')
+            }
+        }
+
+        const winnerAnnouncement = document.querySelector('div.winner-announcement');
+        function announceWinner(winner) {
+            if (winner = 'player') {
+                // Edit HTML to congratulate player
+                winnerAnnouncement.textContent = 'You win! Congratulations!';
+            }
+            else {
+                // Edit HTML to wish luck next time
+                winnerAnnouncement.textContent = 'You lose! Better luck next time!';
+            }
         }
 
         
