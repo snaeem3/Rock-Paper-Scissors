@@ -169,6 +169,11 @@
             playerScoreCard.textContent = playerScore;
             computerScoreCard.textContent = computerScore;
             winnerAnnouncement.textContent = '';
+            document.getElementById("rock").disabled = false;
+            document.getElementById("paper").disabled = false;
+            document.getElementById("scissors").disabled = false;
+
+
         }
 
         const winnerAnnouncement = document.querySelector('div.winner-announcement');
@@ -181,6 +186,9 @@
                 // Edit HTML to wish luck next time
                 winnerAnnouncement.textContent = 'You lose! Better luck next time!';
             }
+            document.getElementById("rock").disabled = true;
+            document.getElementById("paper").disabled = true;
+            document.getElementById("scissors").disabled = true;
         }
 
         
