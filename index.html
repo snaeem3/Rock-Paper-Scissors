@@ -28,6 +28,7 @@
         <button id="rock">Rock</button>
         <button id="paper">Paper</button>
         <button id="scissors">Scissors</button>
+        <button id="reset" type="reset">Reset</button>
     </div>
     <script>
         function getComputerChoice() {
@@ -162,6 +163,14 @@
             }
         }
 
+        function resetScore() {
+            playerScore = 0;
+            computerScore = 0;
+            playerScoreCard.textContent = playerScore;
+            computerScoreCard.textContent = computerScore;
+            winnerAnnouncement.textContent = '';
+        }
+
         const winnerAnnouncement = document.querySelector('div.winner-announcement');
         function announceWinner(winner) {
             if (winner === 'player') {
@@ -183,10 +192,17 @@
         // we use the .forEach method to iterate through each button
         buttons.forEach((button) => {
             // and for each one we add a 'click' listener
-            button.addEventListener('click', () => {
-                // alert(button.id);
-                playRound(button.id,getComputerChoice());
-            });
+            if (button.id != "reset") { 
+                button.addEventListener('click', () => {
+                    // alert(button.id);
+                    playRound(button.id,getComputerChoice());
+                });
+            }
+            else {
+                button.addEventListener('click', () => {
+                    resetScore();
+                })
+            }
         });
     </script>
     
