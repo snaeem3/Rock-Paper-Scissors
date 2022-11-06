@@ -22,7 +22,7 @@
         </div>
     </div>
     
-    <div class="winner-announcement"></div>
+    <div class="game-status"></div>
     
     <div class="button-container">
         <button id="rock">Rock</button>
@@ -45,6 +45,11 @@
             else
                 return "Scissors";
             
+        }
+
+        function updateRound(text) {
+            // Input string from playRound() output to be displayed
+            gameStatus.textContent = text;
         }
 
         function playRound(playerSelection, computerSelection) {
@@ -168,23 +173,26 @@
             computerScore = 0;
             playerScoreCard.textContent = playerScore;
             computerScoreCard.textContent = computerScore;
-            winnerAnnouncement.textContent = '';
+            gameStatus.textContent = '';
             document.getElementById("rock").disabled = false;
             document.getElementById("paper").disabled = false;
             document.getElementById("scissors").disabled = false;
+            gameStatus.style.color = 'black';
 
 
         }
 
-        const winnerAnnouncement = document.querySelector('div.winner-announcement');
+        const gameStatus = document.querySelector('div.game-status');
         function announceWinner(winner) {
             if (winner === 'player') {
                 // Edit HTML to congratulate player
-                winnerAnnouncement.textContent = 'You win! Congratulations!';
+                gameStatus.style.color = 'green';
+                gameStatus.textContent = 'You win! Congratulations!';
             }
             else {
                 // Edit HTML to wish luck next time
-                winnerAnnouncement.textContent = 'You lose! Better luck next time!';
+                gameStatus.style.color = 'red';
+                gameStatus.textContent = 'You lose! Better luck next time!';
             }
             document.getElementById("rock").disabled = true;
             document.getElementById("paper").disabled = true;
@@ -203,7 +211,7 @@
             if (button.id != "reset") { 
                 button.addEventListener('click', () => {
                     // alert(button.id);
-                    playRound(button.id,getComputerChoice());
+                    updateRound(playRound(button.id,getComputerChoice()));
                 });
             }
             else {
