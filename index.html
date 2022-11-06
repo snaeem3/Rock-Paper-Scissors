@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="match-result"></div>
     <div class="score-container">
         <h2>
             Player Score:
@@ -183,16 +184,17 @@
         }
 
         const gameStatus = document.querySelector('div.game-status');
+        const matchResult = document.querySelector('div.match-result');
         function announceWinner(winner) {
             if (winner === 'player') {
                 // Edit HTML to congratulate player
-                gameStatus.style.color = 'green';
-                gameStatus.textContent = 'You win! Congratulations!';
+                matchResult.style.color = 'green';
+                matchResult.textContent = 'You win! Congratulations!';
             }
             else {
                 // Edit HTML to wish luck next time
-                gameStatus.style.color = 'red';
-                gameStatus.textContent = 'You lose! Better luck next time!';
+                matchResult.style.color = 'red';
+                matchResult.textContent = 'You lose! Better luck next time!';
             }
             document.getElementById("rock").disabled = true;
             document.getElementById("paper").disabled = true;
