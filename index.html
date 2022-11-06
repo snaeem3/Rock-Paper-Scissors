@@ -58,9 +58,10 @@
                     return "Tie! You both chose Rock";
 
                 // If computer selected paper
-                if (computerSelection === "paper")
+                if (computerSelection === "paper"){
+                    updateScore('computer');
                     return "You Lose! Paper beats Rock";
-
+                }
                 // else computer selected scissors
                 else {
                     updateScore('player');
@@ -80,17 +81,19 @@
                     return "Tie! You both chose Paper";
 
                 // else computer selected scissors
-                else
+                else{
+                    updateScore('computer');
                     return "You Lose! Scissors beats Paper";
-                
+                }
             }
             
             // Else player selected scissors
             else {
                 // If computer selected rock
-                if (computerSelection === "rock")
+                if (computerSelection === "rock"){
+                    updateScore('computer');
                     return "You Lose! Rock beats Scissors";
-
+                }
                 // If computer selected paper
                 if (computerSelection === "paper"){
                     updateScore('player');
@@ -127,7 +130,7 @@
 
             // Determine if wins is greater than, less than, or equal to losses
             if (wins > losses)
-                console.log("You win!");
+                console.log("You win!");    
             else if (wins < losses)
                 console.log("You lost!");
             else // wins === losses
@@ -142,11 +145,11 @@
         let computerScore = 0;
 
         function updateScore(winner) {
-            if (winner = 'player') {
+            if (winner === 'player') {
                 playerScore++;
                 playerScoreCard.textContent = playerScore;
             }
-            else if (winner = 'computer') {
+            else if (winner === 'computer') {
                 computerScore++;
                 computerScoreCard.textContent = computerScore;
             }
@@ -161,7 +164,7 @@
 
         const winnerAnnouncement = document.querySelector('div.winner-announcement');
         function announceWinner(winner) {
-            if (winner = 'player') {
+            if (winner === 'player') {
                 // Edit HTML to congratulate player
                 winnerAnnouncement.textContent = 'You win! Congratulations!';
             }
