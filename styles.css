@@ -1,17 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background: rgb(73, 73, 73);
     color: black;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 header {
-    /* max-width: fit-content; */
-    background: red;
-    padding: 0em 1em;
+    background: rgb(0, 2, 114);
+    color: mintcream;
     font-size: 32px;
+    font-weight: bolder;
+    text-align: center;
+    flex: auto;
+    padding: 32px 0px;
 }
 
 .match-result {
@@ -21,17 +28,49 @@ header {
     border: 4mm ridge;
     border-radius: 8px;
     margin: 16px 0px;
+    text-align: center;
+    max-width: fit-content;
+    align-self: center;
+}
+
+.score-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 32px 0;
+    /* border: solid white; */
+    background: silver;
+    /* max-width: fit-content; */
+    gap: 16px;
+    /* align-self: center; */
 }
 
 .score-container {
     display: flex;
-    justify-content: space-around;
-    /* font-size: 24px; */
+    align-items: center;
+    gap: 16px;
+    padding: 0 32px;
 }
 
 .score {
     background: white;
-    border: thick black;
+    border: solid black;
     max-width: fit-content;
     padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.game-status {
+    font-size: 16px;
+    padding: 16px 24px;
+    background: white;
+    border: 8px solid;
+    margin: 16px 0px;
+    min-width: 100px;
+    text-align: center;
+    max-width: fit-content;
+    align-self: center;
 }
