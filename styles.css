@@ -56,6 +56,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 32px;
 }
 
 
@@ -82,7 +83,7 @@ header {
     border-radius: 8px;
     margin: 16px 0px;
     text-align: center;
-    width: 400px;
+    width: 500px;
     min-height: 32px;
     align-self: center;
 }
@@ -128,5 +129,15 @@ button:active {
     align-self: center;
     border-radius: 0px;
     border: 6px solid black;
+}
 
+.winning {
+    transform: scale(1.1);
+    border-color: #15ff00;
+    box-shadow: 0 0 1rem #15ff00;
+}
+.losing {
+    transform: scale(1.1);
+    border-color: #ff0800;
+    box-shadow: 0 0 1rem #ff0800;
 }

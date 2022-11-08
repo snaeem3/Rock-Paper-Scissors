@@ -166,10 +166,13 @@
             if (winner === 'player') {
                 playerScore++;
                 playerScoreCard.textContent = playerScore;
+                playerScoreCard.classList.add('winning');
             }
             else if (winner === 'computer') {
                 computerScore++;
                 computerScoreCard.textContent = computerScore;
+                computerScoreCard.classList.add('losing');
+
             }
 
             if (playerScore > 4) {
@@ -223,12 +226,15 @@
             // and for each one we add a 'click' listener
             if (button.id != "reset") { 
                 button.addEventListener('click', () => {
-                    // alert(button.id);
+                    playerScoreCard.classList.remove('winning');
+                    computerScoreCard.classList.remove('losing');
                     updateRound(playRound(button.id,getComputerChoice()));
                 });
             }
             else {
                 button.addEventListener('click', () => {
+                    playerScoreCard.classList.remove('winning');
+                    computerScoreCard.classList.remove('losing');
                     resetScore();
                 })
             }
