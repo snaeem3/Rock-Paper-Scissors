@@ -7,3 +7,5 @@ This project showcases a Rock Paper Scissors game using javascript. The skills i
 - Conditional statements
 - User prompting
 - For loops
+- Javascript DOM manipulation
+- Event Listeners
